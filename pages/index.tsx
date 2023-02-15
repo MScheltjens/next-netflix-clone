@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import { Banner, NavBar } from "@/components";
+import { Banner, Card, NavBar } from "@/components";
 
 import styles from "../styles/Home.module.css";
 
@@ -17,8 +17,9 @@ const Home: NextPage = () => {
         subTitle="a very cute dog"
         imgUrl="/static/clifford.webp"
       />
-      {/* 
-      <Card /> */}
+      <Card imgUrl="/static/clifford.webp" size="lg" />
+      <Card imgUrl="/static/clifford.webp" size="md" />
+      <Card imgUrl="/static/clifford.webp" size="sm" />
     </div>
   );
 };
