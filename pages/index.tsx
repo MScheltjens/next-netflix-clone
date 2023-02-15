@@ -7,10 +7,16 @@ import { TApiVideo } from "@/types/types";
 import styles from "../styles/Home.module.css";
 
 interface HomePageProps {
-  videos: TApiVideo[];
+  disneyVideos: TApiVideo[];
+  travelVideos: TApiVideo[];
+  productivityVideos: TApiVideo[];
 }
 
-const Home: NextPage<HomePageProps> = ({ videos }) => {
+const Home: NextPage<HomePageProps> = ({
+  disneyVideos,
+  travelVideos,
+  productivityVideos,
+}) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -24,8 +30,10 @@ const Home: NextPage<HomePageProps> = ({ videos }) => {
         imgUrl="/static/clifford.webp"
       />
       <div className={styles.sectionWrapper}>
-        <SectionCards title="Disney" videos={videos} size="lg" />
-        <SectionCards title="Productivity" videos={videos} />
+        <SectionCards title="Disney" videos={disneyVideos} size="lg" />
+        <SectionCards title="Travel" videos={travelVideos} size="sm" />
+        <SectionCards title="Productivity" videos={productivityVideos} />
+        <SectionCards title="Popular" videos={disneyVideos} size="sm" />
       </div>
     </div>
   );
@@ -34,5 +42,16 @@ const Home: NextPage<HomePageProps> = ({ videos }) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  return { props: { videos: getVideos() } };
+  const disneyVideos = await getVideos("disney trailer");
+  const travelVideos = await getVideos("travel");
+  const productivityVideos = await getVideos("productivity");
+  const popularVideos = await getVideos("disney trailer");
+  return {
+    props: {
+      disneyVideos,
+      travelVideos,
+      productivityVideos,
+      popularVideos,
+    },
+  };
 };
