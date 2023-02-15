@@ -1,10 +1,10 @@
 import { TApiResponse } from "@/types/types";
 
-export const getCommonVideos = async (URL: string) => {
+export const getCommonVideos = async (url: string) => {
   const BASE_URL = "https://youtube.googleapis.com/youtube/v3";
   try {
     const response = await fetch(
-      `${BASE_URL}/${URL}&maxResults=25&key=${process.env.YOUTUBE_API_KEY}`
+      `${BASE_URL}/${url}&maxResults=25&key=${process.env.YOUTUBE_API_KEY}`
     );
 
     const data: TApiResponse = await response.json();
