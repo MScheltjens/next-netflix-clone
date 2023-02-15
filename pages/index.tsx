@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import { Banner } from "@/components";
+import { Banner, NavBar } from "@/components";
 
 import styles from "../styles/Home.module.css";
 
@@ -11,16 +11,13 @@ const Home: NextPage = () => {
         <title>Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h1>Netflix</h1>
-
+      <NavBar userName="userName" />
       <Banner
         title="Clifford the red dog"
         subTitle="a very cute dog"
         imgUrl="/static/clifford.webp"
       />
-
-      {/* <Navbar />
+      {/* 
       <Card /> */}
     </div>
   );
