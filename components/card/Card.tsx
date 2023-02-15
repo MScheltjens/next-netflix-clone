@@ -6,18 +6,21 @@ import styles from "./card.module.css";
 import cls from "classnames";
 
 interface CardProps {
+  id?: number;
   imgUrl: string;
   size?: "lg" | "sm";
 }
 
-const Card: FC<CardProps> = ({ imgUrl, size = "md" }) => {
+const Card: FC<CardProps> = ({ imgUrl, size = "md", id }) => {
   const [imgSrc, setImgSrc] = useState<string>(imgUrl);
+
+  const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
+
   return (
     <div className={styles.container}>
-      Card
       <motion.div
         className={cls(styles.imgMotionWrapper, styles[size])}
-        whileHover={{ scale: 1.2 }}
+        whileHover={{ ...scale }}
       >
         <Image
           src={imgSrc}

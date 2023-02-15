@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import { Banner, Card, NavBar } from "@/components";
+import { Banner, Card, NavBar, SectionCards } from "@/components";
 
 import styles from "../styles/Home.module.css";
 
@@ -17,9 +17,7 @@ const Home: NextPage = () => {
         subTitle="a very cute dog"
         imgUrl="/static/clifford.webp"
       />
-      <Card imgUrl="/static/clifford.webp" size="lg" />
-      <Card imgUrl="/static/cliffffdsqd.webp" />
-      <Card imgUrl="/static/clifford.webp" size="sm" />
+      <SectionCards title="Disney" />
     </div>
   );
 };
