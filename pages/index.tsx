@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         imgUrl="/static/clifford.webp"
       />
       <Card imgUrl="/static/clifford.webp" size="lg" />
-      <Card imgUrl="/static/clifford.webp" size="md" />
+      <Card imgUrl="/static/cliffffdsqd.webp" />
       <Card imgUrl="/static/clifford.webp" size="sm" />
     </div>
   );
