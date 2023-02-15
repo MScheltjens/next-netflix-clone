@@ -1,13 +1,16 @@
 import Head from "next/head";
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { Banner, NavBar, SectionCards } from "@/components";
 import { getVideos } from "@/lib/videos";
+import { TApiVideo } from "@/types/types";
 
 import styles from "../styles/Home.module.css";
 
-const Home: NextPage = () => {
-  const disneyVideos = getVideos();
+interface HomePageProps {
+  videos: TApiVideo[];
+}
 
+const Home: NextPage<HomePageProps> = ({ videos }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -21,11 +24,15 @@ const Home: NextPage = () => {
         imgUrl="/static/clifford.webp"
       />
       <div className={styles.sectionWrapper}>
-        <SectionCards title="Disney" videos={disneyVideos} size="lg" />
-        <SectionCards title="Productivity" videos={disneyVideos} />
+        <SectionCards title="Disney" videos={videos} size="lg" />
+        <SectionCards title="Productivity" videos={videos} />
       </div>
     </div>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return { props: { videos: getVideos() } };
+};
