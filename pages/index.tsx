@@ -5,6 +5,28 @@ import { Banner, Card, NavBar, SectionCards } from "@/components";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
+  const disneyVideos = [
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+  ];
+
+  const productivityVideos = [
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+    { imgUrl: "/static/clifford.webp" },
+  ];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +40,8 @@ const Home: NextPage = () => {
         imgUrl="/static/clifford.webp"
       />
       <div className={styles.sectionWrapper}>
-        <SectionCards title="Disney" />
+        <SectionCards title="Disney" videos={disneyVideos} size="lg" />
+        <SectionCards title="Productivity" videos={productivityVideos} />
       </div>
     </div>
   );

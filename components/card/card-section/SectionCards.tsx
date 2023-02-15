@@ -5,23 +5,18 @@ import styles from "./sectionCard.module.css";
 
 interface SectionCardProps {
   title: string;
+  videos: { imgUrl: string }[];
+  size?: "lg" | "sm";
 }
 
-const SectionCards: FC<SectionCardProps> = ({ title }) => {
+const SectionCards: FC<SectionCardProps> = ({ title, videos, size }) => {
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.cardWrapper}>
-        <Card id={0} imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
-        <Card imgUrl="/static/clifford.webp" size="lg" />
+        {videos.map((video, i) => (
+          <Card id={i} key={i} imgUrl={video.imgUrl} size={size} />
+        ))}
       </div>
     </section>
   );
