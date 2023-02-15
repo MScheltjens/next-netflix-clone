@@ -1,31 +1,12 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import { Banner, Card, NavBar, SectionCards } from "@/components";
+import { Banner, NavBar, SectionCards } from "@/components";
+import { getVideos } from "@/lib/videos";
 
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const disneyVideos = [
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-  ];
-
-  const productivityVideos = [
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-    { imgUrl: "/static/clifford.webp" },
-  ];
+  const disneyVideos = getVideos();
 
   return (
     <div className={styles.container}>
@@ -41,7 +22,7 @@ const Home: NextPage = () => {
       />
       <div className={styles.sectionWrapper}>
         <SectionCards title="Disney" videos={disneyVideos} size="lg" />
-        <SectionCards title="Productivity" videos={productivityVideos} />
+        <SectionCards title="Productivity" videos={disneyVideos} />
       </div>
     </div>
   );

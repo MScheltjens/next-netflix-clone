@@ -1,3 +1,4 @@
+import { TApiVideo } from "@/types/types";
 import { FC } from "react";
 import { Card } from "../Card";
 
@@ -5,7 +6,7 @@ import styles from "./sectionCard.module.css";
 
 interface SectionCardProps {
   title: string;
-  videos: { imgUrl: string }[];
+  videos: TApiVideo[];
   size?: "lg" | "sm";
 }
 
