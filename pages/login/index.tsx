@@ -14,11 +14,11 @@ const Login: NextPage<LoginProps> = () => {
     console.log("clicked");
   };
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <title>Netflix SignIn</title>
       </Head>
-      <header>
+      <header className={styles.header}>
         <div className={styles.headerWrapper}>
           <Link className={styles.logoLink} href="/">
             <div className={styles.logoWrapper}>
@@ -31,26 +31,23 @@ const Login: NextPage<LoginProps> = () => {
             </div>
           </Link>
         </div>
-        <main className={styles.main}>
-          <div className={styles.mainWrapper}>
-            <h1 className={styles.signinHeader}>Sign In</h1>
-            <input
-              type="text"
-              placeholder="Email address"
-              className={styles.emailInput}
-            />
-            <p className={styles.userMsg}></p>
-            <button
-              onClick={handleLoginEmail}
-              className={styles.loginButton}
-              style={{ color: "white" }}
-            >
-              Sign In
-            </button>
-          </div>
-        </main>
       </header>
-    </>
+
+      <main className={styles.main}>
+        <div className={styles.mainWrapper}>
+          <h1 className={styles.signinHeader}>Sign In</h1>
+          <input
+            type="text"
+            placeholder="Email address"
+            className={styles.emailInput}
+          />
+          <p className={styles.userMsg}></p>
+          <button onClick={handleLoginEmail} className={styles.loginBtn}>
+            Sign In
+          </button>
+        </div>
+      </main>
+    </div>
   );
 };
 
