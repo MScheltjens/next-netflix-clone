@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetServerSideProps, NextPage } from "next";
 import { Banner, NavBar, SectionCards } from "@/components";
-import { getPopularVideos, getVideos } from "@/service/videos";
+import { getVideos } from "@/service/videos";
 import { TApiVideo } from "@/types/types";
 import { magic } from "../lib/magic-client";
 
@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       disneyVideos: await getVideos("disney trailer"),
       travelVideos: await getVideos("travel"),
       productivityVideos: await getVideos("productivity"),
-      popularVideos: await getPopularVideos(),
+      popularVideos: await getVideos("disney trailer"),
     },
   };
 };

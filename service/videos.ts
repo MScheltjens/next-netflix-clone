@@ -1,6 +1,6 @@
 import { TApiResponse } from "@/types/types";
 
-export const getCommonVideos = async (url: string) => {
+const getCommonVideos = async (url: string) => {
   const BASE_URL = "https://youtube.googleapis.com/youtube/v3";
   try {
     const response = await fetch(
@@ -29,13 +29,15 @@ export const getCommonVideos = async (url: string) => {
   }
 };
 
-export const getVideos = (searchQuery: string) => {
+const getVideos = (searchQuery: string) => {
   const URL = `search?part=snippet&q=${searchQuery}&type=video`;
   return getCommonVideos(URL);
 };
 
-export const getPopularVideos = () => {
-  const URL =
-    "videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=BE";
-  return getCommonVideos(URL);
-};
+// export const getPopularVideos = () => {
+//   const URL =
+//     "videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=BE";
+//   return getCommonVideos(URL);
+// };
+
+export { getVideos };
